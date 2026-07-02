@@ -35,3 +35,23 @@ export const addUser = async (req, res) => {
     console.log(error);
   }
 };
+
+export const getAllProfessionals = async (req, res) => {
+  try {
+    const professionals = await Professional.find();
+    
+    if (professionals.length === 0) {
+      return res.status(200).json({
+        success: false,
+        message: "No users found",
+        professionals: [],
+      });
+    }
+    return res.status(200).json({
+      success: true,
+      professionals,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
