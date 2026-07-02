@@ -17,7 +17,7 @@ export const addUser = async (req, res) => {
 
     if (!name || !category) {
       return res.status(400).json({
-        message: "Email Already In Use!!",
+        message: "Fields cannot be left empty!!",
         success: false,
       });
     }
